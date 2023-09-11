@@ -1,11 +1,11 @@
 // Store a URL
 const url = 'https://2u-data-curriculum-team.s3.amazonaws.com/dataviz-classroom/v1.1/14-Interactive-Web-Visualizations/02-Homework/samples.json'
 
-// Fetch the JSON data and console log it
-d3.json(url).then(
-  function(data) {
-    console.log(data);
-  });
+// // Fetch the JSON data and console log it
+// d3.json(url).then(
+//   function(data) {
+//     console.log(data);
+//   });
 
 // Create function that builds bar chart
 function buildBarChart(sample){
@@ -14,13 +14,13 @@ function buildBarChart(sample){
     d3.json(url).then((data) => {
 
         let sampleData = data.samples;
-
+        
         // Filter the data 
         let filteredData = sampleData.filter(result => result.id == sample);
-
+        console.log(filteredData)
         // Get the first value of the data
         let resultData = filteredData[0];
-
+        
         // Get the otu ids, lables, and sample values
         let otu_ids = resultData.otu_ids;
         let otu_labels = resultData.otu_labels;
@@ -60,17 +60,20 @@ function buildBubbleChart(sample)
      d3.json(url).then((data) => {
 
         let sampleData = data.samples;
+        console.log(sampleData)
 
         // Filter the data 
         let filteredData = sampleData.filter(result => result.id == sample);
-
+        console.log(filteredData)
 
         // Get the first value from the data
         let resultData = filteredData[0];
+        console.log(resultData)
 
         // Get the otu ids, lables, and sample values
         let otu_ids = resultData.otu_ids;
         let otu_labels = resultData.otu_labels;
+        console.log(otu_labels)
         let sample_values = resultData.sample_values;
 
         // Set up trace a bubble chart
